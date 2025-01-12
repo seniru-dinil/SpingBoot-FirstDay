@@ -5,8 +5,7 @@ import edu.icet.ecom.model.Product;
 import java.util.ArrayList;
 
 public class ProductService {
-
-
+    
         public ArrayList<Product> getProductList(){
             Product product = new Product("Banana", "Cargo", 100.0);
             Product product1 = new Product("Cream Cracker", "Unileaver", 300.0);
