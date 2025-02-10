@@ -8,5 +8,5 @@ import java.util.ArrayList;
 
 @Service
 public interface ProductService {
-    public ArrayList<Product> getProductList();
+     ArrayList<Product> getProductList();
 }
