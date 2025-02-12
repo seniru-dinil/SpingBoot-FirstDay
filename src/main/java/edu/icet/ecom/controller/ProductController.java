@@ -1,11 +1,12 @@
 package edu.icet.ecom.controller;
 
 import edu.icet.ecom.model.Product;
-import edu.icet.ecom.service.ProductService;
+import edu.icet.ecom.service.custom.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -18,9 +19,9 @@ public class ProductController {
     final ProductService productService;
 
 
-    @GetMapping("/get-product")
-    public ArrayList<Product> getProductList() {
-        return productService.getProductList();
+    @GetMapping("products")
+    public List<Product> getProductList() {
+        return productService.getAll();
     }
 
     @GetMapping("/search-product")
@@ -29,7 +30,8 @@ public class ProductController {
     }
 
     @PostMapping("/add-product")
-    public String addProduct(@RequestBody Product product) {
-        return (product).toString()+" added succesfully";
+    public void addProduct(@RequestBody Product product) {
+        productService.addProduct(product);
+        System.out.println(product);
     }
 }
